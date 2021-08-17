@@ -12,12 +12,14 @@ class PostsTableSeeder extends Seeder
     public function run()
     {
         $param=[
-            'body'=>'sample text',
+            'title'=>'sample title',
+            'body'=>'sample body',
             ];
         DB::table('posts')->insert($param);
         
         $param=[
-            'body'=>'sample text2',
+            'title'=>'sample title2',
+            'body'=>'sample body2',
             ];
         DB::table('posts')->insert($param);
     }

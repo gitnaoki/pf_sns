@@ -14,7 +14,11 @@ class PostController extends Controller
     public function create(){
         return view('create');
     }
+    public function show(Post $post){
+        return view('show')->with(['post' => $post]);
+    }
     public function store(Request $request,Post $post){
+        $post->title=$request->title;
         $post->body=$request->body;
         $post->save();
         return redirect('/');

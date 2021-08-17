@@ -11,13 +11,8 @@
 
     </head>
     <body>
-        <form method="POST" action="/posts">
-            @csrf
-            タイトル<br>
-            <input name="title"><br>
-            コメント<br>
-            <textarea name="body"></textarea><br>
-            <input type="submit">
-        </form>
+                    <p class='title'>{{$post->title}}</p>
+                    <p class='body'>{{ $post->body }}</p>
+                    <a href='/'>一覧に戻る</a>
     </body>
 </html>
