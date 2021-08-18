@@ -11,9 +11,14 @@
 
     </head>
     <body>
-                    <p class='title'>{{$post->title}}</p>
-                    <p class='body'>{{ $post->body }}</p>
-                    <a href='/'>一覧に戻る</a>
-                    <a href="/posts/{{ $post->id }}/edit">編集</a>
+        <form method="POST" action="/posts/{{$post->id}}">
+            @csrf
+            @method('PUT')
+            タイトル<br>
+            <input name="title" value="{{$post->title}}"><br>
+            コメント<br>
+            <textarea name="body" >{{$post->body}}</textarea><br>
+            <input type="submit" value="保存">
+        </form>
     </body>
 </html>

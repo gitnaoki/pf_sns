@@ -23,4 +23,14 @@ class PostController extends Controller
         $post->save();
         return redirect('/');
     }
+    public function edit(Post $post){
+        return view('edit')->with(['post' => $post]);
+    }
+    public function update(Request $request,Post $post){
+        $post->title=$request->title;
+        $post->body=$request->body;
+        $post->save();
+        return redirect('/');
+    }
+    
 }
