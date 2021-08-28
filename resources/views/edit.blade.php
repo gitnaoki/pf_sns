@@ -18,7 +18,8 @@
             <input name="title" value="{{$post->title}}"><br>
             コメント<br>
             <textarea name="body" >{{$post->body}}</textarea><br>
-            <input type="submit" value="保存">
+            <input type="submit" value="変更を保存">
         </form>
+        
     </body>
 </html>
