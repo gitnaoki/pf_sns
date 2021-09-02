@@ -8,10 +8,11 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
-
+        <link href="{{asset('/css/app.css')}}" rel="stylesheet">
     </head>
     <body>
-        [<a href='/posts/create'>新規作成</a>]
+        <a href='/posts/create'></a>
+        <a href='/posts/create'>新規作成</a>
          <div class='posts'>
             @foreach ($posts as $post)
                 <div class='post'>
