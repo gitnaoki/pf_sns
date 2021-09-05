@@ -13,6 +13,7 @@
     <body>
         <form method="POST" action="/posts">
             @csrf
+        
             タイトル<br>
             <input name="title"><br>
             コメント<br>
