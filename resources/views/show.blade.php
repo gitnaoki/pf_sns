@@ -1,16 +1,14 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>sns</title>
+@extends('layouts.app')
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Dashboard</div>
 
-    </head>
-    <body>
+                <div class="card-body">
                     <p class='title'>{{$post->title}}</p>
                     <p class='body'>{{ $post->body }}</p>
                     <a href='/'>一覧に戻る</a>
@@ -20,10 +18,30 @@
             @method('DELETE')
         <input type="submit" value="投稿を削除" onclick="deleteConfirm()">
         </form>
+        
+        <form method="POST" action="/comments/{{$post->id}}">
+            @csrf
+            コメント<br>
+            <textarea name="body"></textarea><br>
+            <input type="submit">
+        </form>
+        
+        @foreach ($comments as $comment)
+                <div class='post'>
+                    <p class='user_name'>{{$comment->user_name}}</p>
+                    <p class='body'>{{ $comment->body }}</p>
+                </div>
+        @endforeach
+        
         <script>
             function deleteConfirm(){
                 confirm("本当に削除しますか？");
             }
         </script>
-    </body>
-</html>
+    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
