@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Post;
+use App\Comment;
 
 class PostController extends Controller
 {
@@ -15,8 +16,11 @@ class PostController extends Controller
     public function create(){
         return view('create');
     }
-    public function show(Post $post){
-        return view('show')->with(['post' => $post]);
+    public function show(Post $post,Comment $comment){
+        
+        //Postモデルのcomments()を利用してポストに所属するコメントを取得
+        $comment =Post::find($post->id)->comments;
+        return view('show')->with(['post'=>$post,'comments'=>$comment]);
     }
     public function store(Request $request,Post $post){
         $user = Auth::user();
